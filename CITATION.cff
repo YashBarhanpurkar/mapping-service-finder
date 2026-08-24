@@ -12,8 +12,8 @@ authors:
   - given-names: "Yash Amit"
     family-names: "Barhanpurkar"
     affiliation: "Technische Universität Berlin"
-  - given-names: "Harsith"
-    family-names: "Suresh Kumar"
+  - given-names: "Harsith Suresh"
+    family-names: "Kumar"
     affiliation: "Technische Universität Berlin"
   - given-names: "Pradosh"
     family-names: "Kandasamy"
@@ -27,9 +27,8 @@ authors:
 version: "1.0.0"
 date-released: "2026-08-24"
 
-# TODO Replace <your-username> with your GitHub username once the repo exists.
-repository-code: "https://github.com/<your-username>/mapping-service-finder"
-url: "https://<your-username>.github.io/mapping-service-finder/"
+repository-code: "https://github.com/YashBarhanpurkar/mapping-service-finder"
+url: "https://YashBarhanpurkar.github.io/mapping-service-finder/"
 
 keywords:
   - urban manufacturing
@@ -41,7 +40,5 @@ keywords:
   - matchmaking
   - findability
 
-# TODO Add an SPDX licence identifier here once you have decided, e.g.
-# license: MIT
-# Without this line (and a LICENSE file) the code is "all rights reserved" —
-# see the publishing guide, Step 0.
+license: MIT
+
