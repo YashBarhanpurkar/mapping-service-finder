@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Mapping & Service Finder — Demonstrator"
+abstract: >-
+  An open-source, static, client-side demonstrator implementing a ten-dimension
+  taxonomy of urban manufacturing service offerings. It matches a stated demand
+  against provider capabilities and reports a transparent, per-criterion verdict
+  (met / not met / unknown), ranked by fewest mismatches. Seeded with a dataset of
+  17 providers and 25 offerings in the Berlin area.
+type: software
+authors:
+  - given-names: "Yash Amit"
+    family-names: "Barhanpurkar"
+    affiliation: "Technische Universität Berlin"
+  - given-names: "Harsith"
+    family-names: "Suresh Kumar"
+    affiliation: "Technische Universität Berlin"
+  - given-names: "Pradosh"
+    family-names: "Kandasamy"
+    affiliation: "Technische Universität Berlin"
+  - given-names: "Julien"
+    family-names: "Colomb"
+    affiliation: "Technische Universität Berlin"
+  - given-names: "Robert"
+    family-names: "Mies"
+    affiliation: "Technische Universität Berlin"
+version: "1.0.0"
+date-released: "2026-08-24"
+
+# TODO Replace <your-username> with your GitHub username once the repo exists.
+repository-code: "https://github.com/<your-username>/mapping-service-finder"
+url: "https://<your-username>.github.io/mapping-service-finder/"
+
+keywords:
+  - urban manufacturing
+  - sustainable manufacturing
+  - circular economy
+  - taxonomy
+  - makerspaces
+  - technology infrastructure
+  - matchmaking
+  - findability
+
+# TODO Add an SPDX licence identifier here once you have decided, e.g.
+# license: MIT
+# Without this line (and a LICENSE file) the code is "all rights reserved" —
+# see the publishing guide, Step 0.

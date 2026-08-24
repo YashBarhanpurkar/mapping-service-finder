@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "provider.schema.json",
+  "title": "Provider (parent record)",
+  "description": "A provider is the parent record; its classified content lives in its offerings (see offering.schema.json). Unit of classification = service offering (project doc §7.1). The provider surfaces as the bundle of its offerings so compound needs stay visible.",
+  "type": "object",
+  "required": ["id", "name", "geo", "verification", "offerings"],
+  "additionalProperties": false,
+  "properties": {
+    "id":      { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$", "description": "Stable slug, e.g. 'motionlab-berlin'." },
+    "name":    { "type": "string", "minLength": 1 },
+    "website": { "type": "string", "format": "uri" },
+    "contact": { "type": "string", "description": "Email or phone. Informational only, never matched on." },
+    "address": { "type": "string", "description": "Human-readable address. Informational only." },
+
+    "geo": {
+      "type": "object",
+      "description": "Two grains: precise WGS84 coordinate for the map + NUTS region code(s). GeoJSON (RFC 7946) uses [lon, lat] order when exported.",
+      "required": ["nuts"],
+      "additionalProperties": false,
+      "properties": {
+        "lat":  { "type": ["number", "null"], "minimum": -90,  "maximum": 90 },
+        "lon":  { "type": ["number", "null"], "minimum": -180, "maximum": 180 },
+        "nuts": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[A-Z]{2}[A-Z0-9]{0,3}$" },
+                  "description": "One or more NUTS codes at any level (e.g. DE300, DE40E, DE, FR). ISO 3166 alpha-2 acceptable for non-EU." }
+      }
+    },
+
+    "certifications_held": {
+      "type": "array",
+      "description": "Credentials the provider holds. Strictly distinct from certification_scope on offerings (§7.3).",
+      "items": {
+        "type": "object",
+        "required": ["cert", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "cert":   { "type": "string", "description": "Key from vocabularies.certifications" },
+          "status": { "enum": ["claimed", "certified"], "description": "claimed = provider assertion; certified = attested by accreditation/notified body" },
+          "source": { "type": "string", "description": "URL or citation backing this entry" }
+        }
+      }
+    },
+
+    "verification": {
+      "type": "object",
+      "required": ["level", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "level":        { "enum": ["page_level", "company_level", "unverified"] },
+        "sources":      { "type": "array", "items": { "type": "string" }, "description": "Primary sources checked (URLs, Impressum, licence files)" },
+        "last_checked": { "type": "string", "format": "date" },
+        "notes":        { "type": "string", "description": "E.g. discrepancies found and how resolved — recorded, never silently fixed" }
+      }
+    },
+
+    "offerings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "offering.schema.json" },
+      "description": "Each offering carries exactly one D0 resource type. A provider spanning several types has several offerings."
+    },
+
+    "status": { "enum": ["active", "defunct", "uncertain"], "default": "active",
+                "description": "Directory listings can outlive facilities. 'defunct' entries are retained for record but never shown in search results." }
+  }
+}

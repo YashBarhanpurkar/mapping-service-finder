@@ -1,0 +1,1004 @@
+{
+  "_meta": {
+    "name": "LAUDS Mapping & Service Finder — Controlled Vocabularies",
+    "version": "0.1.0",
+    "source": "LAUDS_Mapping_Service_Finder_Project.md §7 (taxonomy) and §7.6 (seeded vocabularies)",
+    "principle": "Standards-seeded, admin-editable. Leaves grow through field research; never inferred.",
+    "note": "Every list here may be extended by an admin. Keys are stable identifiers; labels are display text."
+  },
+  "d0_resource_types": [
+    {
+      "key": "fabrication_facility",
+      "label": "Fabrication facility",
+      "definition": "Offers access to fabrication equipment or fabrication as a service. A facility whose machines are shared by many users is a fabrication facility; the sharing is captured by D6 Access Model."
+    },
+    {
+      "key": "material_supplier",
+      "label": "Material supplier",
+      "definition": "Supplies materials or feedstock (including recycled/secondary materials)."
+    },
+    {
+      "key": "testing_service",
+      "label": "Testing service",
+      "definition": "Performs technical testing, measurement, or validation against defined requirements or standards."
+    },
+    {
+      "key": "certification_service",
+      "label": "Certification service",
+      "definition": "Assesses and attests conformity (e.g. CE, ISO) as an accredited or notified body, or supports obtaining such attestation as its core service."
+    },
+    {
+      "key": "advisory_service",
+      "label": "Advisory service",
+      "definition": "Mentoring, consulting, accelerator or programme-based guidance as the core offering."
+    },
+    {
+      "key": "workspace",
+      "label": "Workspace",
+      "definition": "Desk-based space with no fabrication capability (coworking, offices, community space). Carries no D1/D2 by definition."
+    }
+  ],
+  "applicability_matrix": {
+    "_legend": {
+      "full": "applies",
+      "partial": "applies partially / case-by-case",
+      "none": "not applicable"
+    },
+    "fabrication_facility": {
+      "D1": "full",
+      "D2": "full",
+      "D3": "full",
+      "D4": "full",
+      "D5": "full",
+      "D6": "full",
+      "D7": "full",
+      "D8": "full",
+      "D9": "full",
+      "D1_facets": [
+        "material",
+        "process"
+      ]
+    },
+    "material_supplier": {
+      "D1": "full",
+      "D2": "none",
+      "D3": "none",
+      "D4": "full",
+      "D5": "partial",
+      "D6": "full",
+      "D7": "full",
+      "D8": "full",
+      "D9": "full",
+      "_notes": {
+        "D1": "material facet primarily",
+        "D4": "recycled/secondary feedstock",
+        "D5": "open material specifications only"
+      },
+      "D1_facets": [
+        "material"
+      ]
+    },
+    "testing_service": {
+      "D1": "full",
+      "D2": "none",
+      "D3": "full",
+      "D4": "partial",
+      "D5": "none",
+      "D6": "full",
+      "D7": "full",
+      "D8": "full",
+      "D9": "full",
+      "_notes": {
+        "D1": "what it can test",
+        "D3": "development phase served; testing aligns with validation work around TRL 4–7"
+      },
+      "D1_facets": [
+        "material"
+      ]
+    },
+    "certification_service": {
+      "D1": "partial",
+      "D2": "none",
+      "D3": "full",
+      "D4": "partial",
+      "D5": "none",
+      "D6": "full",
+      "D7": "full",
+      "D8": "full",
+      "D9": "full",
+      "_notes": {
+        "D1": "read through the certification-scope field",
+        "D3": "market entry, around TRL 7–9"
+      },
+      "D1_facets": [
+        "material"
+      ]
+    },
+    "advisory_service": {
+      "D1": "partial",
+      "D2": "none",
+      "D3": "partial",
+      "D4": "full",
+      "D5": "none",
+      "D6": "full",
+      "D7": "full",
+      "D8": "full",
+      "D9": "full",
+      "_notes": {
+        "D1": "technical advice only",
+        "D3": "programme's stage focus (e.g. an accelerator stating an entry band)"
+      },
+      "D1_facets": [
+        "material"
+      ]
+    },
+    "workspace": {
+      "D1": "none",
+      "D2": "none",
+      "D3": "none",
+      "D4": "partial",
+      "D5": "none",
+      "D6": "full",
+      "D7": "full",
+      "D8": "full",
+      "D9": "full",
+      "D1_facets": []
+    }
+  },
+  "d1_material_facet": {
+    "_standard": "NACE Rev. 2.1 Section C (Manufacturing); ISIC as global equivalent",
+    "values": [
+      {
+        "key": "food_bio",
+        "label": "Food & bio-based products",
+        "nace": "C10–C11"
+      },
+      {
+        "key": "textiles_apparel",
+        "label": "Textiles & apparel",
+        "nace": "C13–C14"
+      },
+      {
+        "key": "wood_paper",
+        "label": "Wood & paper",
+        "nace": "C16–C17"
+      },
+      {
+        "key": "chemicals",
+        "label": "Chemicals",
+        "nace": "C20"
+      },
+      {
+        "key": "pharma_biotech",
+        "label": "Pharma & biotech",
+        "nace": "C21"
+      },
+      {
+        "key": "rubber_plastics",
+        "label": "Rubber & plastics",
+        "nace": "C22"
+      },
+      {
+        "key": "glass_ceramics",
+        "label": "Glass, ceramics & minerals",
+        "nace": "C23"
+      },
+      {
+        "key": "metals",
+        "label": "Metals & metal products",
+        "nace": "C24–C25"
+      },
+      {
+        "key": "electronics",
+        "label": "Electronics & electrical",
+        "nace": "C26–C27"
+      },
+      {
+        "key": "machinery",
+        "label": "Machinery & equipment",
+        "nace": "C28"
+      },
+      {
+        "key": "furniture_other",
+        "label": "Furniture & other manufacturing",
+        "nace": "C31–C32"
+      },
+      {
+        "key": "repair_install",
+        "label": "Repair & installation",
+        "nace": "C33",
+        "note": "NACE home of repair; ties to D4 mid-life strategies"
+      }
+    ]
+  },
+  "d1_process_facet": {
+    "_standard": "Per-domain schemes: DIN 8580; ISO/ASTM 52900; IPC-aligned; project schemes for textiles and bio & materials",
+    "schemes": [
+      {
+        "key": "din8580",
+        "label": "Manufacturing processes (DIN 8580)",
+        "values": [
+          {
+            "key": "primary_shaping",
+            "label": "Primary shaping (casting, moulding)",
+            "note": "includes resin casting (field-confirmed)"
+          },
+          {
+            "key": "forming",
+            "label": "Forming"
+          },
+          {
+            "key": "separating",
+            "label": "Separating (machining: turning, milling, drilling, sawing; laser & waterjet cutting)"
+          },
+          {
+            "key": "joining",
+            "label": "Joining (welding, soldering, adhesive)"
+          },
+          {
+            "key": "coating",
+            "label": "Coating"
+          },
+          {
+            "key": "property_change",
+            "label": "Changing material properties (heat treatment)"
+          }
+        ]
+      },
+      {
+        "key": "iso_astm_52900",
+        "label": "Additive manufacturing (ISO/ASTM 52900)",
+        "values": [
+          {
+            "key": "material_extrusion",
+            "label": "Material extrusion",
+            "note": "includes large-format pellet extrusion (field-confirmed)"
+          },
+          {
+            "key": "vat_photopolymerisation",
+            "label": "Vat photopolymerisation"
+          },
+          {
+            "key": "powder_bed_fusion",
+            "label": "Powder bed fusion"
+          },
+          {
+            "key": "material_jetting",
+            "label": "Material jetting"
+          },
+          {
+            "key": "binder_jetting",
+            "label": "Binder jetting"
+          },
+          {
+            "key": "sheet_lamination",
+            "label": "Sheet lamination"
+          },
+          {
+            "key": "directed_energy_deposition",
+            "label": "Directed energy deposition"
+          }
+        ]
+      },
+      {
+        "key": "electronics_ipc",
+        "label": "Electronics (IPC-aligned)",
+        "values": [
+          {
+            "key": "pcb_design",
+            "label": "PCB design"
+          },
+          {
+            "key": "pcb_fabrication",
+            "label": "PCB fabrication"
+          },
+          {
+            "key": "smt_assembly",
+            "label": "SMT assembly"
+          },
+          {
+            "key": "tht_assembly",
+            "label": "THT assembly"
+          },
+          {
+            "key": "soldering_rework",
+            "label": "Soldering & rework"
+          },
+          {
+            "key": "test_inspection",
+            "label": "Test & inspection"
+          },
+          {
+            "key": "embedded_firmware",
+            "label": "Embedded & firmware"
+          }
+        ]
+      },
+      {
+        "key": "textiles",
+        "label": "Textiles",
+        "values": [
+          {
+            "key": "cutting",
+            "label": "Cutting"
+          },
+          {
+            "key": "sewing",
+            "label": "Sewing"
+          },
+          {
+            "key": "weaving",
+            "label": "Weaving"
+          },
+          {
+            "key": "knitting",
+            "label": "Knitting"
+          },
+          {
+            "key": "printing_dyeing",
+            "label": "Printing & dyeing"
+          },
+          {
+            "key": "finishing",
+            "label": "Finishing"
+          }
+        ]
+      },
+      {
+        "key": "bio_materials",
+        "label": "Bio & materials",
+        "values": [
+          {
+            "key": "synthesis",
+            "label": "Synthesis"
+          },
+          {
+            "key": "characterisation",
+            "label": "Characterisation"
+          },
+          {
+            "key": "culture",
+            "label": "Culture"
+          },
+          {
+            "key": "processing",
+            "label": "Processing"
+          }
+        ]
+      }
+    ]
+  },
+  "equipment_leaf": {
+    "_standard": "eCl@ss / UNSPSC codes optional per entry. Starts empty except field-confirmed entries; grows through field research; entries link to a process key.",
+    "values": [
+      {
+        "key": "large_format_pellet_printer",
+        "label": "Large-format pellet 3D printer",
+        "process": "material_extrusion",
+        "eclass": null,
+        "source": "field-confirmed (demand-case requirement)"
+      },
+      {
+        "key": "vacuum_infusion_setup",
+        "label": "Vacuum infusion moulding setup",
+        "process": "primary_shaping",
+        "eclass": null,
+        "source": "field-confirmed (windkit OC2 technical annex: 'optimized vacuum infusion molding process')"
+      },
+      {
+        "key": "laser_cutter",
+        "label": "Laser cutter",
+        "process": "separating"
+      },
+      {
+        "key": "plasma_cutter",
+        "label": "Plasma cutter",
+        "process": "separating"
+      },
+      {
+        "key": "band_saw",
+        "label": "Band saw",
+        "process": "separating"
+      },
+      {
+        "key": "table_saw",
+        "label": "Table / panel saw",
+        "process": "separating"
+      },
+      {
+        "key": "pillar_drill",
+        "label": "Pillar drill",
+        "process": "separating"
+      },
+      {
+        "key": "wood_lathe",
+        "label": "Wood lathe",
+        "process": "separating"
+      },
+      {
+        "key": "wood_router",
+        "label": "Router / table router",
+        "process": "separating"
+      },
+      {
+        "key": "planer_thicknesser",
+        "label": "Planer / thicknesser",
+        "process": "separating"
+      },
+      {
+        "key": "press_brake",
+        "label": "Press brake (sheet bending)",
+        "process": "forming"
+      },
+      {
+        "key": "tig_welder",
+        "label": "TIG welder",
+        "process": "joining"
+      },
+      {
+        "key": "arc_welder",
+        "label": "Arc / multi-process welder",
+        "process": "joining"
+      },
+      {
+        "key": "fdm_printer",
+        "label": "FDM 3D printer",
+        "process": "material_extrusion"
+      },
+      {
+        "key": "sla_printer",
+        "label": "Resin (SLA/DLP) 3D printer",
+        "process": "vat_photopolymerisation"
+      },
+      {
+        "key": "cnc_router",
+        "label": "CNC router",
+        "process": "separating"
+      },
+      {
+        "key": "cnc_mill",
+        "label": "CNC milling machine",
+        "process": "separating"
+      },
+      {
+        "key": "metal_lathe",
+        "label": "Metal lathe",
+        "process": "separating"
+      },
+      {
+        "key": "mig_mag_welder",
+        "label": "MIG/MAG welder",
+        "process": "joining"
+      },
+      {
+        "key": "cff_printer",
+        "label": "Continuous-fibre (CFF) 3D printer",
+        "process": "material_extrusion"
+      },
+      {
+        "key": "industrial_sewing_machine",
+        "label": "Industrial sewing machine",
+        "process": "sewing"
+      },
+      {
+        "key": "uv_printer",
+        "label": "UV flatbed printer",
+        "process": "printing_dyeing"
+      },
+      {
+        "key": "vinyl_plotter",
+        "label": "Cutting plotter",
+        "process": "cutting"
+      }
+    ]
+  },
+  "materials_tags": {
+    "_note": "Cross-cutting specific materials. Open list, admin-extendable, never inferred.",
+    "values": [
+      {
+        "key": "pla",
+        "label": "PLA"
+      },
+      {
+        "key": "rpla",
+        "label": "Recycled PLA (rPLA)"
+      },
+      {
+        "key": "abs",
+        "label": "ABS"
+      },
+      {
+        "key": "petg",
+        "label": "PETG"
+      },
+      {
+        "key": "epoxy_resin",
+        "label": "Epoxy resin",
+        "source": "field-confirmed (demand-case requirement)"
+      },
+      {
+        "key": "aluminium",
+        "label": "Aluminium"
+      },
+      {
+        "key": "steel",
+        "label": "Steel"
+      },
+      {
+        "key": "wood",
+        "label": "Wood"
+      },
+      {
+        "key": "textile_fabric",
+        "label": "Textile fabric"
+      },
+      {
+        "key": "rpetg",
+        "label": "Recycled PETG"
+      },
+      {
+        "key": "rabs",
+        "label": "Recycled ABS"
+      },
+      {
+        "key": "asa",
+        "label": "ASA"
+      },
+      {
+        "key": "stainless_steel",
+        "label": "Stainless steel"
+      }
+    ]
+  },
+  "d2_production_stage": [
+    {
+      "key": "education_concept",
+      "label": "Education & concept",
+      "note": "Hennelly Type 1"
+    },
+    {
+      "key": "design_prototyping",
+      "label": "Design & prototyping",
+      "note": "Hennelly Type 2"
+    },
+    {
+      "key": "production",
+      "label": "Production",
+      "note": "Hennelly Type 3"
+    }
+  ],
+  "d3_trl": {
+    "_standard": "EU Horizon TRL definitions / ISO 16290:2013. Stored as a min–max range: the readiness band of client projects the provider can support, not the provider's own maturity.",
+    "min": 1,
+    "max": 9,
+    "labels": {
+      "1": "TRL 1 — basic principles observed",
+      "2": "TRL 2 — technology concept formulated",
+      "3": "TRL 3 — experimental proof of concept",
+      "4": "TRL 4 — validated in lab",
+      "5": "TRL 5 — validated in relevant environment",
+      "6": "TRL 6 — demonstrated in relevant environment",
+      "7": "TRL 7 — system prototype in operational environment",
+      "8": "TRL 8 — system complete and qualified",
+      "9": "TRL 9 — proven in operational environment"
+    }
+  },
+  "d4_circularity": {
+    "_standard": "10R (Potting et al. 2017), primary; ISO 59004/59020:2024 cross-reference only. Multi-tag.",
+    "tiers": [
+      {
+        "key": "smart_use",
+        "label": "Smart use & production",
+        "values": [
+          {
+            "key": "refuse",
+            "label": "R0 Refuse"
+          },
+          {
+            "key": "rethink",
+            "label": "R1 Rethink"
+          },
+          {
+            "key": "reduce",
+            "label": "R2 Reduce"
+          }
+        ]
+      },
+      {
+        "key": "extend_life",
+        "label": "Extend product lifetime",
+        "values": [
+          {
+            "key": "reuse",
+            "label": "R3 Reuse"
+          },
+          {
+            "key": "repair",
+            "label": "R4 Repair"
+          },
+          {
+            "key": "refurbish",
+            "label": "R5 Refurbish"
+          },
+          {
+            "key": "remanufacture",
+            "label": "R6 Remanufacture"
+          },
+          {
+            "key": "repurpose",
+            "label": "R7 Repurpose"
+          }
+        ]
+      },
+      {
+        "key": "recover_materials",
+        "label": "Useful application of materials",
+        "values": [
+          {
+            "key": "recycle",
+            "label": "R8 Recycle"
+          },
+          {
+            "key": "recover",
+            "label": "R9 Recover"
+          }
+        ]
+      }
+    ]
+  },
+  "d5_openness": {
+    "_standard": "OSTRL 1–9 (Romani et al. 2026): product + process openness across transparency, replicability, reusability, accessibility. Scoring checklist: DIN SPEC 3105-1/-2, OSHWA definition, Colomb (2025) documentation guide.",
+    "min": 1,
+    "max": 9,
+    "note": "Applies to open-hardware offerings (and open material specifications, partial). Descriptive metadata, not a primary search filter."
+  },
+  "d6_access_model": [
+    {
+      "key": "free",
+      "label": "Free / public"
+    },
+    {
+      "key": "membership",
+      "label": "Membership"
+    },
+    {
+      "key": "pay_per_use",
+      "label": "Pay-per-use"
+    },
+    {
+      "key": "grant_funded",
+      "label": "Grant-funded"
+    },
+    {
+      "key": "institutional",
+      "label": "Institutional"
+    },
+    {
+      "key": "programme",
+      "label": "Programme-based"
+    }
+  ],
+  "d7_governance": [
+    {
+      "key": "community_governed",
+      "label": "Community-governed"
+    },
+    {
+      "key": "policy_driven",
+      "label": "Policy-driven"
+    },
+    {
+      "key": "hybrid",
+      "label": "Hybrid"
+    },
+    {
+      "key": "commercial",
+      "label": "Commercial"
+    }
+  ],
+  "d8_target_user": [
+    {
+      "key": "sme",
+      "label": "SME",
+      "definition": "Per Commission Recommendation 2003/361/EC"
+    },
+    {
+      "key": "startup",
+      "label": "Startup"
+    },
+    {
+      "key": "scaleup",
+      "label": "Scaleup",
+      "definition": "Per OECD–Eurostat definition (≥20% growth)"
+    },
+    {
+      "key": "innovator_team",
+      "label": "Innovator team (pre-company)",
+      "definition": "Early, not-yet-incorporated groups — the LAUDS open-call hybrid-team type"
+    },
+    {
+      "key": "established",
+      "label": "Established firm"
+    },
+    {
+      "key": "research",
+      "label": "Research institution"
+    },
+    {
+      "key": "creatives",
+      "label": "Creatives",
+      "definition": "Professional artists and designers — a core LAUDS constituency"
+    }
+  ],
+  "d9_support_services": {
+    "values": [
+      {
+        "key": "co_design",
+        "label": "Co-design support"
+      },
+      {
+        "key": "distribution",
+        "label": "Distribution support"
+      },
+      {
+        "key": "mentoring",
+        "label": "Mentoring support"
+      },
+      {
+        "key": "certification",
+        "label": "Certification support"
+      }
+    ],
+    "intensity": [
+      {
+        "key": "consultative",
+        "label": "Consultative — provider advises, user executes"
+      },
+      {
+        "key": "collaborative",
+        "label": "Collaborative — provider and user co-produce"
+      },
+      {
+        "key": "user_led",
+        "label": "User-led — user drives, provider enables"
+      }
+    ],
+    "note": "D9 captures services beyond an offering's core D0 type."
+  },
+  "certifications": {
+    "_note": "One shared two-level vocabulary serving two strictly separate fields: certifications_held (provider metadata, with status claimed|certified) and certification_scope (on testing/certification offerings only). Never merged.",
+    "categories": [
+      {
+        "key": "quality",
+        "label": "Quality",
+        "values": [
+          {
+            "key": "iso9001",
+            "label": "ISO 9001"
+          },
+          {
+            "key": "din_spec_3105",
+            "label": "DIN SPEC 3105 (open source hardware documentation)"
+          }
+        ]
+      },
+      {
+        "key": "environmental",
+        "label": "Environmental",
+        "values": [
+          {
+            "key": "iso14001",
+            "label": "ISO 14001"
+          },
+          {
+            "key": "emas",
+            "label": "EMAS"
+          },
+          {
+            "key": "reach",
+            "label": "REACH"
+          },
+          {
+            "key": "rohs",
+            "label": "RoHS"
+          },
+          {
+            "key": "iso50001",
+            "label": "ISO 50001 (energy management)"
+          }
+        ]
+      },
+      {
+        "key": "health_safety",
+        "label": "Health & Safety",
+        "values": [
+          {
+            "key": "iso45001",
+            "label": "ISO 45001"
+          }
+        ]
+      },
+      {
+        "key": "product_compliance",
+        "label": "Product Compliance (CE)",
+        "values": [
+          {
+            "key": "ce_machinery",
+            "label": "CE — Machinery Directive 2006/42/EC"
+          },
+          {
+            "key": "ce_lvd",
+            "label": "CE — Low Voltage Directive 2014/35/EU"
+          },
+          {
+            "key": "ce_emc",
+            "label": "CE — EMC Directive 2014/30/EU"
+          },
+          {
+            "key": "ce_red",
+            "label": "CE — Radio Equipment Directive"
+          },
+          {
+            "key": "en303645",
+            "label": "EN 303 645 (consumer IoT security)"
+          }
+        ]
+      },
+      {
+        "key": "sector",
+        "label": "Sector-specific",
+        "values": [
+          {
+            "key": "iso13485",
+            "label": "ISO 13485 (medical)"
+          },
+          {
+            "key": "iatf16949",
+            "label": "IATF 16949 (automotive)"
+          },
+          {
+            "key": "ec1935",
+            "label": "EC 1935/2004 (food contact)"
+          },
+          {
+            "key": "dakks_17025",
+            "label": "DAkkS accreditation (DIN EN ISO/IEC 17025)"
+          },
+          {
+            "key": "iec61400_2",
+            "label": "IEC 61400-2 (small wind turbines)"
+          },
+          {
+            "key": "mdr",
+            "label": "EU MDR 2017/745 (medical devices)"
+          },
+          {
+            "key": "ivdr",
+            "label": "EU IVDR 2017/746 (in-vitro diagnostics)"
+          }
+        ]
+      }
+    ]
+  },
+  "geography": {
+    "_standard": "WGS84 (EPSG:4326) coordinates; NUTS 2024 region codes, generalising to NUTS / ISO 3166 / UN M49; GeoJSON (IETF RFC 7946) interchange; OGC API-Features for geodata interoperability.",
+    "nuts3_seed": [
+      {
+        "code": "DE300",
+        "label": "Berlin"
+      },
+      {
+        "code": "DE401",
+        "label": "Brandenburg an der Havel"
+      },
+      {
+        "code": "DE402",
+        "label": "Cottbus"
+      },
+      {
+        "code": "DE403",
+        "label": "Frankfurt (Oder)"
+      },
+      {
+        "code": "DE404",
+        "label": "Potsdam"
+      },
+      {
+        "code": "DE405",
+        "label": "Barnim"
+      },
+      {
+        "code": "DE406",
+        "label": "Dahme-Spreewald"
+      },
+      {
+        "code": "DE407",
+        "label": "Elbe-Elster"
+      },
+      {
+        "code": "DE408",
+        "label": "Havelland"
+      },
+      {
+        "code": "DE409",
+        "label": "Märkisch-Oderland"
+      },
+      {
+        "code": "DE40A",
+        "label": "Oberhavel"
+      },
+      {
+        "code": "DE40B",
+        "label": "Oberspreewald-Lausitz"
+      },
+      {
+        "code": "DE40C",
+        "label": "Oder-Spree"
+      },
+      {
+        "code": "DE40D",
+        "label": "Ostprignitz-Ruppin"
+      },
+      {
+        "code": "DE40E",
+        "label": "Potsdam-Mittelmark"
+      },
+      {
+        "code": "DE40F",
+        "label": "Prignitz"
+      },
+      {
+        "code": "DE40G",
+        "label": "Spree-Neiße"
+      },
+      {
+        "code": "DE40H",
+        "label": "Teltow-Fläming"
+      },
+      {
+        "code": "DE40I",
+        "label": "Uckermark"
+      },
+      {
+        "code": "DE911",
+        "label": "Braunschweig, Kreisfreie Stadt",
+        "note": "outside Berlin/Brandenburg — added because a listed provider is located here"
+      },
+      {
+        "code": "DE712",
+        "label": "Offenbach am Main, Kreisfreie Stadt",
+        "note": "outside Berlin/Brandenburg — added because a listed provider is located here"
+      }
+    ],
+    "note": "Providers outside the seed region carry their own NUTS code (any level) or ISO 3166 code; the model is worldwide by construction, Berlin/Brandenburg is the applied use case."
+  },
+  "verification_confidence": [
+    {
+      "key": "page_level",
+      "label": "Page-level verified",
+      "definition": "The specific offering confirmed on the provider's own pages"
+    },
+    {
+      "key": "company_level",
+      "label": "Company-level verified",
+      "definition": "Organisation confirmed, but not the specific branch or offering"
+    },
+    {
+      "key": "unverified",
+      "label": "Unverified",
+      "definition": "Not yet confirmed against a primary source"
+    }
+  ],
+  "certification_status": [
+    {
+      "key": "claimed",
+      "label": "Claimed",
+      "definition": "Asserted by the provider (e.g. marketing statement)"
+    },
+    {
+      "key": "certified",
+      "label": "Certified",
+      "definition": "Attested by an accreditation or notified body, with source"
+    }
+  ]
+}

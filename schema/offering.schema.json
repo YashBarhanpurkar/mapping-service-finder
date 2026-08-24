@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "offering.schema.json",
+  "title": "Service offering (unit of classification)",
+  "description": "One offering = one D0 resource type, classified once (project doc §7.1–§7.2). Dimension fields are permitted per the D0 applicability matrix (§7.6); the conditionals below enforce the 'none' cells structurally.",
+  "type": "object",
+  "required": ["id", "d0", "title"],
+  "additionalProperties": false,
+  "properties": {
+    "id":    { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$", "description": "Unique within the provider, e.g. 'fabrication', 'coworking'." },
+    "d0":    { "enum": ["fabrication_facility", "material_supplier", "testing_service", "certification_service", "advisory_service", "workspace"],
+               "description": "Single-valued gate (§7.2 D0)." },
+    "title": { "type": "string", "minLength": 1, "description": "Display name, e.g. 'Open workshop access', 'Recycled filament supply'." },
+
+    "d1": {
+      "type": "object",
+      "description": "Technology Domain: two facets over a shared equipment leaf, plus cross-cutting materials tags (§7.2 D1).",
+      "additionalProperties": false,
+      "properties": {
+        "material_facet": { "type": "array", "items": { "type": "string" }, "description": "Keys from vocabularies.d1_material_facet (NACE-seeded)" },
+        "process_facet":  { "type": "array", "items": { "type": "string" }, "description": "Keys from vocabularies.d1_process_facet schemes (DIN 8580 / ISO-ASTM 52900 / IPC / textiles / bio)" },
+        "equipment":      { "type": "array", "items": { "type": "string" }, "description": "Keys from vocabularies.equipment_leaf (field-confirmed machines)" },
+        "materials":      { "type": "array", "items": { "type": "string" }, "description": "Keys from vocabularies.materials_tags" }
+      }
+    },
+
+    "d2": { "type": "array", "items": { "enum": ["education_concept", "design_prototyping", "production"] },
+            "description": "Production Stage (Hennelly Type 1–3). Fabrication facilities only." },
+
+    "d3": { "type": "object",
+            "description": "TRL Range: the band of client-project maturity this offering supports — not the provider's own maturity.",
+            "required": ["min", "max"], "additionalProperties": false,
+            "properties": {
+              "min": { "type": "integer", "minimum": 1, "maximum": 9 },
+              "max": { "type": "integer", "minimum": 1, "maximum": 9 }
+            } },
+
+    "d4": { "type": "array", "items": { "enum": ["refuse", "rethink", "reduce", "reuse", "repair", "refurbish", "remanufacture", "repurpose", "recycle", "recover"] },
+            "description": "Circularity: full 10R multi-tag (Potting et al. 2017). Never compressed to tiers in data; tiers are a display grouping only." },
+
+    "d5": { "type": ["integer", "null"], "minimum": 1, "maximum": 9,
+            "description": "Openness Level on OSTRL 1–9. Open-hardware offerings (and open material specs) only. Descriptive metadata." },
+
+    "d6": { "type": "array", "minItems": 1, "items": { "enum": ["free", "membership", "pay_per_use", "grant_funded", "institutional", "programme"] },
+            "description": "Access Model." },
+    "d6_exclusion_note": { "type": "string", "description": "Annotation: who is excluded and why (recorded, not a matched value)." },
+
+    "d7": { "enum": ["community_governed", "policy_driven", "hybrid", "commercial", null],
+            "description": "Governance Model (single-valued). Descriptive metadata." },
+
+    "d8": { "type": "array", "items": { "enum": ["sme", "startup", "scaleup", "innovator_team", "established", "research", "creatives"] },
+            "description": "Target User Profile (multi-tag): the audiences this offering serves." },
+
+    "d9": { "type": "array",
+            "description": "Support Services beyond the offering's core D0 type, each with co-creation intensity.",
+            "items": {
+              "type": "object",
+              "required": ["type"],
+              "additionalProperties": false,
+              "properties": {
+                "type":      { "enum": ["co_design", "distribution", "mentoring", "certification"] },
+                "intensity": { "enum": ["consultative", "collaborative", "user_led", null] }
+              }
+            } },
+
+    "certification_scope": {
+      "type": "array", "items": { "type": "string" },
+      "description": "Testing/certification offerings only: which standards/directives this offering can test or certify against (keys from vocabularies.certifications). This is what a certification-need search matches; strictly distinct from provider-level certifications_held."
+    },
+
+    "notes":   { "type": "string" },
+    "sources": { "type": "array", "items": { "type": "string" }, "description": "Primary sources for this offering's classification." }
+  },
+
+  "allOf": [
+    {
+      "if": { "properties": { "d0": { "const": "workspace" } } },
+      "then": { "properties": { "d1": false, "d2": false, "d3": false, "d5": false, "certification_scope": false },
+                "description": "Workspace: no fabrication capability by definition — no D1/D2/D3/D5 (§7.6)." }
+    },
+    {
+      "if": { "properties": { "d0": { "const": "material_supplier" } } },
+      "then": { "properties": { "d2": false, "d3": false, "certification_scope": false } }
+    },
+    {
+      "if": { "properties": { "d0": { "const": "testing_service" } } },
+      "then": { "properties": { "d2": false, "d5": false } }
+    },
+    {
+      "if": { "properties": { "d0": { "const": "certification_service" } } },
+      "then": { "properties": { "d2": false, "d5": false } }
+    },
+    {
+      "if": { "properties": { "d0": { "const": "advisory_service" } } },
+      "then": { "properties": { "d2": false, "d5": false, "certification_scope": false } }
+    },
+    {
+      "if": { "properties": { "d0": { "enum": ["fabrication_facility", "material_supplier", "advisory_service", "workspace"] } } },
+      "then": { "properties": { "certification_scope": false },
+                "description": "certification_scope exists only on testing and certification offerings." }
+    }
+  ]
+}

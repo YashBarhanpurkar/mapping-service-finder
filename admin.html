@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin · Mapping &amp; Service Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <p class="apptitle">Mapping &amp; Service Finder</p>
+
+  <nav class="sections">
+    <a href="index.html"><span class="dot"></span>Find providers</a>
+    <a class="active" href="admin.html"><span class="dot"></span>Admin</a>
+  </nav>
+
+  <hr>
+
+  <div class="viewtabs">
+    <button class="vtab active" data-view="providers">Providers</button>
+    <button class="vtab" data-view="taxonomy">Taxonomy</button>
+  </div>
+
+  <div id="side-providers">
+    <h2>Providers</h2>
+    <button class="primary wide" id="a-new">+ New provider</button>
+    <div id="a-list" class="adminlist"></div>
+  </div>
+
+  <div id="side-taxonomy" hidden>
+    <h2>Taxonomy</h2>
+    <p class="hint">Edit the classification itself: resource types, which dimensions
+      apply to each, and the values inside every dimension.</p>
+  </div>
+
+  <hr>
+
+  <h2>Data</h2>
+  <button class="clear" id="a-export">Download providers.json</button>
+  <button class="clear" id="a-export-vocab">Download vocabularies.json</button>
+  <label class="clear filelabel">Import providers.json<input type="file" id="a-import" accept="application/json" hidden></label>
+  <button class="clear" id="a-reset">Discard local changes</button>
+  <p class="hint" id="a-draftnote"></p>
+</aside>
+
+<main class="page">
+  <h1>Admin</h1>
+  <p class="pagecaption" id="a-status"></p>
+
+  <div id="a-editor"></div>
+  <div id="a-vocab"></div>
+</main>
+
+<script src="data/vocabularies.js"></script>
+<script src="data/providers.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

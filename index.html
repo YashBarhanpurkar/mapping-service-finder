@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapping &amp; Service Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <p class="apptitle">Mapping &amp; Service Finder</p>
+
+  <nav class="sections">
+    <a class="active" href="index.html"><span class="dot"></span>Find providers</a>
+    <a href="admin.html"><span class="dot"></span>Admin</a>
+  </nav>
+
+  <hr>
+
+  <h2>Try a real case</h2>
+  <div id="f-demo" class="demoset"></div>
+  <p class="hint" id="demohint">Fills in everything a real project actually needed, in one click.</p>
+
+  <hr>
+
+  <h2>Search by name</h2>
+  <input id="f-q" type="search" placeholder="Name, notes, materials…">
+
+  <h2>What kind of resource?</h2>
+  <div class="group" id="f-d0"></div>
+
+  <h2>Where?</h2>
+  <select id="f-nuts"></select>
+
+  <p class="hint" id="f-hint">Pick a resource type to say more about what you need.</p>
+
+  <div id="f-dims"></div>
+
+  <label class="strictbox" id="strictwrap" hidden>
+    <input type="checkbox" id="f-strict">
+    <span>Only show providers meeting <b>all</b> my criteria</span>
+  </label>
+
+  <button class="clear" id="f-clear">Clear all</button>
+
+  <hr>
+  <h2>Legend</h2>
+  <div id="legend" class="legend"></div>
+  <p class="hint">Map tiles need an internet connection; provider data works offline.</p>
+</aside>
+
+<main class="page">
+  <h1>Find providers</h1>
+  <div id="demonote"></div>
+  <div class="summary" id="summary"></div>
+
+  <div id="map"></div>
+  <div id="unplaced"></div>
+
+  <div id="results"></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data/vocabularies.js"></script>
+<script src="data/providers.js"></script>
+<script src="js/match.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
